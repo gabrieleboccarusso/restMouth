@@ -5,4 +5,5 @@ import boccarusso.table.Tag;
 
 public interface TagRepository extends JpaRepository<Tag, Long> {
 
+	
 }
