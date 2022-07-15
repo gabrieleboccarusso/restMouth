@@ -32,6 +32,14 @@ public class PostController {
 	}
 	
 	@CrossOrigin(origins = "*")
+	@GetMapping("/posts/getByTitle/{title}")
+	Iterable<Post> getPostsByTitle(@PathVariable String title) {
+		return repository.findAllByTitleLike('%' + title + '%');
+	}
+	
+//	postRepository.findAllByTitleLike('%'+search+'%')
+	
+	@CrossOrigin(origins = "*")
 	@GetMapping("/posts/between/{end}/{begin}")
 	Iterable<Post> postsBetween(@PathVariable int end, @PathVariable int begin) {
 		return repository.findByIdBetweenOrderByIdDesc(end, begin);
@@ -39,7 +47,7 @@ public class PostController {
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping("/posts/getByTag/{tag}")
-	LinkedList<Optional<Post>> name(@PathVariable String tag){
+	LinkedList<Optional<Post>> getPostsByTag(@PathVariable String tag){
 		LinkedList<Optional<Post>> posts = new LinkedList<>();
 		Iterable<Integer> ids = repository.getIdsWithTag(tag);
 		for(Integer id : ids) {

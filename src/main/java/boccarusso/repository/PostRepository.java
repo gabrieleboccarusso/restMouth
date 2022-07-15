@@ -8,6 +8,8 @@ import boccarusso.table.Post;
 import boccarusso.table.Tag;
 
 public interface PostRepository extends JpaRepository<Post, Integer>{
+	Iterable<Post> findAllByTitleLike(String title);
+
 	Iterable<Post> findByIdBetweenOrderByIdDesc(int end, int begin);
 	
 	@Query("SELECT max(id) FROM Post")
