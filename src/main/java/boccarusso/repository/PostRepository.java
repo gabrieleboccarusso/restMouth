@@ -17,4 +17,6 @@ public interface PostRepository extends JpaRepository<Post, Integer>{
 	
 	@Query("SELECT ap.postId FROM AppliedTag ap WHERE ap.tagId = (SELECT t.id FROM Tag t WHERE t.name = :name)")
 	Iterable<Integer> getIdsWithTag (String name);
+
+	Post findBySlugLike(String slug);
 }

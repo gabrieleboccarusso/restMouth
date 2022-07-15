@@ -37,7 +37,11 @@ public class PostController {
 		return repository.findAllByTitleLike('%' + title + '%');
 	}
 	
-//	postRepository.findAllByTitleLike('%'+search+'%')
+	@CrossOrigin(origins = "*")
+	@GetMapping("/posts/getBySlug/{slug}")
+	Post getPostsBySlug(@PathVariable String slug) {
+		return repository.findBySlugLike(slug);
+	}
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping("/posts/between/{end}/{begin}")
