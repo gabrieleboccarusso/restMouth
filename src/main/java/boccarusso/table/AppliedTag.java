@@ -1,15 +1,23 @@
 package boccarusso.table;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class AppliedTag {
+
 	@Id
+	private Integer id;
 	private Integer tagId;
 	private Integer postId;
+
+	public Integer getId() {
+		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Integer getTagId() {
 		return tagId;
