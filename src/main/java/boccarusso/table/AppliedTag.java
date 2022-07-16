@@ -5,7 +5,6 @@ import javax.persistence.Id;
 
 @Entity
 public class AppliedTag {
-
 	@Id
 	private Integer id;
 	private Integer tagId;
