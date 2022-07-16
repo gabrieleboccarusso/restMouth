@@ -1,5 +1,6 @@
 package boccarusso.table;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class Post {
 	private String tags;
 	private String creation;
 	private String lastUpdate;
+	@Column(columnDefinition="TEXT")
 	private String content;
 	
 	public Integer getId() {
